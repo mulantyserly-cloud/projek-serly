@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Neuro Exam Monitor</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- TOP NAV -->
+<header class="topnav">
+  <div class="brand">🧠 Neuro Exam Monitor</div>
+  <div class="status-area">
+    <span id="status-tab">Tab: SAFE</span>
+    <span id="status-afk">AFK: 0s</span>
+    <span id="timer">60</span>
+  </div>
+</header>
+
+<!-- APP WRAPPER -->
+<div class="app">
+
+  <!-- LOGIN SCREEN -->
+  <section id="loginScreen" class="screen show">
+    <div class="card">
+      <h1>🧠Secure Exam Access</h1>
+
+      <input id="studentName" placeholder="Nama lengkap">
+      <input id="studentId" placeholder="NIM / ID">
+
+      <button onclick="startExam()">Masuk Ujian</button>
+    </div>
+  </section>
+
+  <!-- EXAM SCREEN -->
+  <section id="examScreen" class="screen">
+
+    <div class="layout">
+
+      <!-- QUESTION AREA -->
+      <div class="panel main-panel">
+
+        <div class="progress">
+          <span id="progressText">Soal 1 / 5</span>
+        </div>
+
+        <div id="warningBox"></div>
+
+        <div class="question-box">
+          <h2 id="questionText"></h2>
+          <div id="answerBox"></div>
+        </div>
+
+        <div class="actions">
+          <button onclick="prevQuestion()">Prev</button>
+          <button onclick="nextQuestion()">Next</button>
+          <button class="submit" onclick="finishExam()">Submit</button>
+        </div>
+
+      </div>
+
+      <!-- MONITOR PANEL -->
+      <aside class="panel side-panel">
+        <h3>Monitoring Panel</h3>
+
+        <div class="stat">
+          <p>Tab Switch</p>
+          <span id="tabCount">0</span>
+        </div>
+
+        <div class="stat">
+          <p>AFK Event</p>
+          <span id="afkCount">0</span>
+        </div>
+
+        <div class="stat">
+          <p>Mouse Activity</p>
+          <span id="mouseCount">0</span>
+        </div>
+      </aside>
+
+    </div>
+  </section>
+
+  <!-- RESULT SCREEN -->
+  <section id="resultScreen" class="screen">
+    <div class="card result">
+      <h2>Hasil Ujian</h2>
+
+      <div id="finalScore"></div>
+
+      <pre id="activityLog"></pre>
+
+      <button onclick="location.reload()">Ulangi</button>
+    </div>
+  </section>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
